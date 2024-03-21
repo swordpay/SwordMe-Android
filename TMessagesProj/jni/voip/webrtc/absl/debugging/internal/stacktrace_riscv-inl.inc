@@ -1,0 +1,183 @@
+// Copyright 2021 The Abseil Authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#ifndef ABSL_DEBUGGING_INTERNAL_STACKTRACE_RISCV_INL_H_
+#define ABSL_DEBUGGING_INTERNAL_STACKTRACE_RISCV_INL_H_
+
+
+#include <sys/ucontext.h>
+
+#include "absl/base/config.h"
+#if defined(__linux__)
+#include <sys/mman.h>
+#include <ucontext.h>
+#include <unistd.h>
+#endif
+
+#include <atomic>
+#include <cassert>
+#include <cstdint>
+#include <iostream>
+#include <limits>
+#include <utility>
+
+#include "absl/base/attributes.h"
+#include "absl/debugging/stacktrace.h"
+
+static const uintptr_t kUnknownFrameSize = 0;
+
+// Return size of kUnknownFrameSize.
+template <typename T>
+static inline uintptr_t ComputeStackFrameSize(const T *low, const T *high) {
+  const char *low_char_ptr = reinterpret_cast<const char *>(low);
+  const char *high_char_ptr = reinterpret_cast<const char *>(high);
+  return low < high ? high_char_ptr - low_char_ptr : kUnknownFrameSize;
+}
+
+// or return null if no stackframe can be found. Perform sanity checks (the
+// strictness of which is controlled by the boolean parameter
+// "STRICT_UNWINDING") to reduce the chance that a bad pointer is returned.
+template <bool STRICT_UNWINDING, bool WITH_CONTEXT>
+ABSL_ATTRIBUTE_NO_SANITIZE_ADDRESS  // May read random elements from stack.
+ABSL_ATTRIBUTE_NO_SANITIZE_MEMORY   // May read random elements from stack.
+static void ** NextStackFrame(void **old_frame_pointer, const void *uc,
+                              const std::pair<size_t, size_t> range) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  void **new_frame_pointer = reinterpret_cast<void **>(old_frame_pointer[-2]);
+  uintptr_t frame_pointer = reinterpret_cast<uintptr_t>(new_frame_pointer);
+
+
+
+
+  if (frame_pointer & 15)
+    return nullptr;
+
+
+  if (WITH_CONTEXT)
+    if (const ucontext_t *ucv = static_cast<const ucontext_t *>(uc))
+
+
+      if (ucv->uc_mcontext.__gregs[8] == frame_pointer)
+        return new_frame_pointer;
+
+
+  const uintptr_t max_size = STRICT_UNWINDING ? 100000 : 1000000;
+  const uintptr_t frame_size =
+      ComputeStackFrameSize(old_frame_pointer, new_frame_pointer);
+  if (frame_size == kUnknownFrameSize) {
+    if (STRICT_UNWINDING)
+      return nullptr;
+
+
+    if (reinterpret_cast<uintptr_t>(new_frame_pointer) < range.first ||
+        reinterpret_cast<uintptr_t>(new_frame_pointer) > range.second)
+      return nullptr;
+  }
+
+  if (frame_size > max_size)
+    return nullptr;
+
+  return new_frame_pointer;
+}
+
+template <bool IS_STACK_FRAMES, bool IS_WITH_CONTEXT>
+ABSL_ATTRIBUTE_NO_SANITIZE_ADDRESS  // May read random elements from stack.
+ABSL_ATTRIBUTE_NO_SANITIZE_MEMORY   // May read random elements from stack.
+static int UnwindImpl(void **result, int *sizes, int max_depth, int skip_count,
+                      const void *ucp, int *min_dropped_frames) {
+
+
+
+#if defined(__GNUC__)
+  void **frame_pointer = reinterpret_cast<void **>(__builtin_frame_address(0));
+#else
+#error reading stack pointer not yet supported on this platform
+#endif
+
+  std::pair<size_t, size_t> stack = {
+
+      static_cast<size_t>(sysconf(_SC_PAGESIZE)),
+      std::numeric_limits<size_t>::max() - sizeof(void *)
+  };
+
+  int n = 0;
+  void *return_address = nullptr;
+  while (frame_pointer && n < max_depth) {
+    return_address = frame_pointer[-1];
+
+
+
+
+    void **next_frame_pointer =
+        NextStackFrame<!IS_STACK_FRAMES, IS_WITH_CONTEXT>(frame_pointer, ucp,
+                                                          stack);
+
+    if (skip_count > 0) {
+      skip_count--;
+    } else {
+      result[n] = return_address;
+      if (IS_STACK_FRAMES) {
+        sizes[n] = ComputeStackFrameSize(frame_pointer, next_frame_pointer);
+      }
+      n++;
+    }
+
+    frame_pointer = next_frame_pointer;
+  }
+
+  if (min_dropped_frames != nullptr) {
+
+
+    const int kMaxUnwind = 200;
+    int num_dropped_frames = 0;
+    for (int j = 0; frame_pointer != nullptr && j < kMaxUnwind; j++) {
+      if (skip_count > 0) {
+        skip_count--;
+      } else {
+        num_dropped_frames++;
+      }
+      frame_pointer =
+          NextStackFrame<!IS_STACK_FRAMES, IS_WITH_CONTEXT>(frame_pointer, ucp,
+                                                            stack);
+    }
+    *min_dropped_frames = num_dropped_frames;
+  }
+
+  return n;
+}
+
+namespace absl {
+ABSL_NAMESPACE_BEGIN
+namespace debugging_internal {
+bool StackTraceWorksForTest() { return true; }
+}  // namespace debugging_internal
+ABSL_NAMESPACE_END
+}  // namespace absl
+
+#endif

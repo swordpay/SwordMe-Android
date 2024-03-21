@@ -1,0 +1,140 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        <include-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/chatDate"-->
+<!--            layout="@layout/live_chat_date_item" />-->
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/avatarLayout"
+                android:layout_width="@dimen/dp_34"
+                android:layout_height="@dimen/dp_34"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10">
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/chatFriendsAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gray_oval_fon"
+                    android:scaleType="centerCrop"
+                    app:riv_border_color="@color/white"
+                    app:riv_border_width="0.3dp"
+                    app:riv_oval="true" />
+
+                <View
+                    android:id="@+id/yellowFon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yellow_oval_icon"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/firsCharacter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="1dp"
+                    android:fontFamily="@font/graphik_semi_bold"
+                    android:singleLine="true"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize_17"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/live_chat_white_fon_item"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/senderName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="dcgdbc dddkvhcdjk"
+                            android:textColor="@color/firstAppBlue"
+                            android:textSize="@dimen/textSize_14" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/gifImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_100"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/friendMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:autoLink="all"
+                            android:elegantTextHeight="true"
+                            android:fontFamily="@font/poppins_regular"
+                            android:lineSpacingExtra="3dp"
+                            android:linksClickable="true"
+                            android:text=".asddjddd"
+                            android:textColor="@color/black"
+                            android:textColorLink="@color/appBlue"
+                            android:textSize="@dimen/textSize_16" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="-3dp"
+                            android:alpha="0.3"
+                            android:elegantTextHeight="true"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="end"
+                            android:text="11:45"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textSize_11" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/click_effect"
+    android:layout_height="@dimen/dp_80">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toStartOf="@+id/checkedIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <FrameLayout
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/errorIcon"
+                android:layout_width="40dp"
+                android:layout_gravity="center"
+                android:layout_height="40dp"
+                layout="@layout/rounded_image_error"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/icon"
+                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@color/white"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                app:riv_oval="true" />
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/border"
+                android:layout_width="46dp"
+                android:layout_gravity="center"
+                android:layout_height="46dp"
+                android:src="@color/transparent"
+                android:background="@color/transparent"
+                android:scaleType="centerCrop"
+                app:riv_border_color="#80878787"
+                app:riv_border_width="1.4dp"
+                app:riv_oval="true" />
+
+        </FrameLayout>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                 android:visibility="gone"
+                android:id="@+id/limitsInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_3"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:textColor="#8D92B0"
+                android:textSize="12dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/checkedIcon"
+        android:layout_marginTop="@dimen/dp_10"
+        android:visibility="gone"
+        android:src="@drawable/ic_check_mark"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="#093489"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"/>
+
+    <include
+        layout="@layout/gray_line_2dp"
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/disableStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#8DFFFFFF"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

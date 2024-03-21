@@ -1,0 +1,25 @@
+//
+//  ReleaseProject.xcconfig
+//
+//  These are Release Configuration project settings for the gtest framework
+//  and examples. It is set in the "Based On:" dropdown in the "Project" info
+//  dialog.
+//  This file is based on the Xcode Configuration files in:
+//  https://github.com/google/google-toolbox-for-mac
+// 
+
+#include "General.xcconfig"
+
+
+GCC_OPTIMIZATION_LEVEL = s
+
+DEPLOYMENT_POSTPROCESSING = YES
+
+GCC_GENERATE_DEBUGGING_SYMBOLS = NO
+
+DEAD_CODE_STRIPPING = YES
+
+// ASSERT going away in release tends to create unused vars.
+OTHER_CFLAGS = $(OTHER_CFLAGS) -DNDEBUG=1 -Wno-unused-variable
+
+STRIP_STYLE = all

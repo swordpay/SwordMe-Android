@@ -1,0 +1,143 @@
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/displayMarginSize"
+    android:orientation="vertical"
+    android:layout_marginEnd="@dimen/displayMarginSize"
+    app:layout_constraintTop_toBottomOf="@id/sendMoneySegmentTab">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/priceTextFieldLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/textFieldSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendMoneySegmentTab">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/priceTextField"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/textFieldSize"
+            android:background="@color/transparent"
+            android:digits="0123456789."
+            android:hint="@string/ex_0_04"
+            android:inputType="phone"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:maxLines="1"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_regular"
+            android:singleLine="true"
+            android:textColor="@color/dark_text_color"
+            android:textColorHint="@color/textFieldHintColor"
+            android:textSize="@dimen/textSize_22"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/coinCurrenciesLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/coinCurrenciesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/click_effect"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <FrameLayout
+                android:id="@+id/iconLayout"
+                android:layout_marginEnd="@dimen/dp_7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <include
+                    android:id="@+id/errorIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    layout="@layout/rounded_image_error"/>
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/coinIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@color/gray"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    app:riv_oval="true" />
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/coinName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/drop_down_icon"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:elegantTextHeight="true"
+                android:textAlignment="center"
+                android:drawablePadding="@dimen/dp_10"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_repeat_mode="restart"
+            app:shimmer_shape="linear">
+
+            <FrameLayout
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:background="@drawable/shimer_rounded_view"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"/>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/line"
+        android:background="@color/textFieldLineColor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/validationErrorText"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dp_2"
+        android:elegantTextHeight="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_regular"
+        android:textColor="@color/errorColor"
+        android:textSize="14sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

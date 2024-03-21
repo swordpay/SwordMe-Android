@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="divider">#dcdcdc</color>
+    <color name="widget_name">#ffffff</color>
+    <color name="widget_badge">#ffffff</color>
+    <color name="widget_time">#74808B</color>
+    <color name="widget_text">#7E8B98</color>
+    <color name="widget_divider">#000000</color>
+    <color name="widget_action_text">#75ADE5</color>
+    <color name="widget_edit_text">#8D949B</color>
+
+
+    <!--    SWORD-->
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true" tools:ignore="MissingDefaultResource">#fff</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="shadowColor">#22000000</color>
+
+    <color name="dark_text_color">#2F3032</color>
+    <color name="liveChatFonColor">#EAECF0</color>
+    <color name="inactive_text_color">#6B6E75</color>
+    <color name="inactiveBlue">#B6C2E8</color>
+    <color name="light_blue">#E0F1FA</color>
+    <color name="yellow">#FFD140</color>
+    <color name="dark_blue">#041B7A</color>
+    <color name="button_blue">#02208B</color>
+    <color name="hint">#6B6E75</color>
+    <color name="inactiveSegmentTextColor">#888C93</color>
+    <color name="dark_hint">#515151</color>
+    <color name="yellowColor">#FFD140</color>
+
+    <color name="errorColor">#FF0000</color>
+    <color name="otpBorderColor">#D9D9D9</color>
+    <color name="termsBlue">#3959BF</color>
+    <color name="bottomNavColor">#EFF2F5</color>
+    <color name="green">#3B864C</color>
+    <color name="darkLineColor">#B7A6A6AA</color>
+    <color name="green_text">#5BAF6E</color>
+    <color name="light_green">#B7EBD8</color>
+    <color name="gray">#F6F8FC</color>
+
+    <color name="dark_gray">#E9E9E9</color>
+    <color name="liveChatMyMessageColor">#76ACFF</color>
+    <color name="firstAppBlue">#008CFF</color>
+    <color name="appBlue">#093489</color>
+    <color name="coinGray">#757470</color>
+    <color name="blur">#B9FFFFFF</color>
+    <color name="textFieldLineColor">#E5E5E5</color>
+    <color name="textFieldHintColor">#C6C6C8</color>
+
+    <color name="colorControlNormal">#898D94</color>
+    <color name="colorControlActivated">#008CFF</color>
+
+
+
+
+
+
+</resources>

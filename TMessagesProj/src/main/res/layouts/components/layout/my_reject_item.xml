@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:layout_marginBottom="10dp"
+            android:gravity="end"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/closedRequestMessageLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.4"
+                android:background="@drawable/live_chat_my_request_style"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/my_request_title_fon"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:text="@string/reject_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_12" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/rejectText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:elegantTextHeight="true"
+                    android:textAlignment="textStart"
+                    android:text="rjdfvrgggggggggggggggggggggg"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_15" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="end"
+                    android:layout_marginTop="-3dp"
+                    android:text="11:45"
+                    android:alpha="0.3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textSize_11"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+
+</layout>

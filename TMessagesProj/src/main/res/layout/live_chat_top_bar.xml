@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingBottom="@dimen/dp_5"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/onBackBtn"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/displayMarginSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_back_icon"
+        android:layout_height="wrap_content"/>
+
+
+    <FrameLayout
+        android:id="@+id/avatarLayout"
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_5"
+        app:layout_constraintBottom_toBottomOf="@+id/onBackBtn"
+        app:layout_constraintStart_toEndOf="@+id/onBackBtn"
+        app:layout_constraintTop_toTopOf="@+id/onBackBtn">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gray_oval_fon"
+            android:scaleType="centerCrop"
+            android:src="@drawable/test_3"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="0.3dp"
+            app:riv_oval="true" />
+
+        <View
+            android:id="@+id/yellowFon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/yellow_oval_icon"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/firsCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="1dp"
+            android:fontFamily="@font/graphik_semi_bold"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_17"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/avatarLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:gravity="center"
+            app:autoSizeMaxTextSize="16sp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="ekhukrdddddddddddddddddddddddv"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/userName"
+            app:layout_constraintStart_toEndOf="@id/onBackBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:elegantTextHeight="true"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="dkvhbkvjkfhvdddddddddddddddddddddddddkjfbvbvtb"
+            android:textColor="@color/hint"
+            android:textSize="@dimen/textSize_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

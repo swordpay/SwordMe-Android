@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/yourCoinNameTitle"
+        android:layout_width="match_parent"
+        android:elegantTextHeight="true"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/displayMarginSize"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/coinCountTitle"
+        android:layout_width="0dp"
+        android:elegantTextHeight="true"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/dark_text_color"
+        android:textSize="@dimen/textSize_15"
+        app:layout_constraintBottom_toBottomOf="@id/coinCount"
+        app:layout_constraintEnd_toStartOf="@+id/coinCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/coinCount" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/coinCount"
+        android:layout_width="wrap_content"
+        android:elegantTextHeight="true"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/textSize_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourCoinNameTitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/euroValueTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:elegantTextHeight="true"
+        android:text="@string/euro_value"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/dark_text_color"
+        android:textSize="@dimen/textSize_15"
+        app:layout_constraintBottom_toBottomOf="@id/euroValue"
+        app:layout_constraintEnd_toStartOf="@+id/euroValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/euroValue" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/euroValue"
+        android:layout_width="wrap_content"
+        android:elegantTextHeight="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/middle_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coinCount" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

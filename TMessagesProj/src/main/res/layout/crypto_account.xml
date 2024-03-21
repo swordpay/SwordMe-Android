@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.telegram.sword.app.home.tabs.cryptoAccount.cryptoAccount.view.CryptoAccount">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/onBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:padding="@dimen/displayMarginSize"
+            android:src="@drawable/backicon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <org.telegram.sword.app.common.helper.ui.SwordSearchView
+            android:id="@+id/cryptoSearchView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/searchViewSize"
+            android:layout_margin="@dimen/displayMarginSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/onBackBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:search_hint="@string/cryptoSearchHint" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/usaBlockerTitle"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/displayMarginSize"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:paddingEnd="@dimen/dp_40"
+            android:text="We are sorry"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_26"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/onBackBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
+        android:id="@+id/UsaBlockerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:id="@+id/usaBlockerIconLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="65dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/usaBlockerDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_gravity="center"
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/kyc_faield_dog" />
+
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/usaBlockerDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:textSize="@dimen/textSize_16"
+            android:layout_marginBottom="100dp"
+            android:fontFamily="@font/poppins_regular"
+            android:elegantTextHeight="true"
+            android:text="The service is currently unavailable in your region"
+            android:textAlignment="center"
+            android:textColor="@color/hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/cryptoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/cryptoWallet"
+            android:textColor="@color/hint"
+            android:textSize="@dimen/textSize_20" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cryptoBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="@dimen/textSize_48"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="@dimen/displayMarginSize"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_48" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/balanceShimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:shimmer_repeat_mode="restart"
+                app:shimmer_shape="linear">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:layout_marginEnd="@dimen/displayMarginSize"
+                    android:background="@drawable/shimer_rounded_view"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="                           "
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_30" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        </FrameLayout>
+
+
+        <include layout="@layout/gray_line_2dp" />
+
+        <include
+            layout="@layout/gray_line_2dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_18" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshCryptoList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cryptoListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/balance_list_item" />
+
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:shimmer_repeat_mode="restart"
+                    app:shimmer_shape="linear">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+
+                            <include layout="@layout/crypto_shimer_item" />
+                        </LinearLayout>
+
+
+                    </ScrollView>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="@dimen/displayMarginSize"
+    android:paddingEnd="@dimen/displayMarginSize"
+    android:paddingBottom="@dimen/displayMarginSize">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+        android:id="@+id/button"
+        android:background="@drawable/blue_border_btn"
+        android:layout_height="@dimen/buttonSize">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/button_icon"
+            android:layout_width="30dp"
+            android:visibility="gone"
+            android:tint="@color/appBlue"
+            android:gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_height="30dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/button_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:autoSizeTextType="uniform"
+            android:textSize="@dimen/textSize_24"
+            android:paddingEnd="@dimen/dp_15"
+            android:paddingStart="@dimen/dp_15"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/appBlue"
+            android:maxLines="1" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

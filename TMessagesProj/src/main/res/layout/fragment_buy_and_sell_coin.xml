@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.telegram.sword.app.bottomSheet.buyAndSellCoin.view.BuyAndSellCoin">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/bottom_sheet_top_bar" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/topLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#A6A6AA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buyOrSellBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topLine"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/amountTypeSegment"
+                layout="@layout/segment_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <org.telegram.sword.app.common.helper.ui.SwordTextField
+                android:id="@+id/coinCountTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_30"
+                android:fontFamily="@font/rubik_italic"
+                android:inputType="phone"
+                app:hint="@string/amount"
+                android:digits="0123456789.,"
+                app:singleSpace="false"
+                app:symbolCount="1"
+                app:textFieldType="amount" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/convertedAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:layout_marginEnd="@dimen/displayMarginSize"
+                android:layout_marginBottom="@dimen/dp_50"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_14" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/displayMarginSize"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/coinRanges"
+                android:textColor="@color/firstAppBlue"
+                android:textSize="@dimen/textSize_16" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/myBalanceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/myBalanceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/myBalance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/displayMarginSize"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/min_amount"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/minimum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/displayMarginSize"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/max_amount"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/maximum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/displayMarginSize"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/buyOrSellBtn"
+        layout="@layout/blue_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/bottomSheetLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#81272727"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

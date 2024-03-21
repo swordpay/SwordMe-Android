@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/consentTitle"
+            android:layout_marginTop="160dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_marginBottom="@dimen/displayMarginSize"
+            android:drawablePadding="@dimen/displayMarginSize"
+            android:text="@string/account_consent_title"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="3dp"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_16" />
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:id="@+id/refreshBtn"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/active_btn"
+        android:layout_height="@dimen/dp_45">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/button_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/allowAccess"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/dp_26"
+            android:paddingStart="@dimen/dp_26"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_20" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>

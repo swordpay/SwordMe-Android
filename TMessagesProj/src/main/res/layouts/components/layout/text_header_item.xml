@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/headerText"
+        android:textSize="@dimen/textSize_14"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="#455154"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"/>

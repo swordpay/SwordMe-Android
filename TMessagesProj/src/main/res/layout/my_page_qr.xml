@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="org.telegram.sword.app.bottomSheet.myPageQr.view.MyPageQr">
+
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/bottom_sheet_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topBarSize" />
+
+    <include
+        android:layout_marginTop="-30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/userInfo"
+        layout="@layout/fragment_my_qr"/>
+
+</FrameLayout>

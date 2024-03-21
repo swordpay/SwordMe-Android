@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:id="@+id/button"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/buttonFon"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:background="@drawable/rounded_clickable_gray"
+            android:layout_height="50dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:tint="@color/appBlue"
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+              <androidx.appcompat.widget.AppCompatTextView
+                  android:id="@+id/buttonName"
+                  android:layout_marginTop="5dp"
+                  android:textColor="@color/dark_text_color"
+                  android:textSize="@dimen/textSize_13"
+                  android:layout_width="wrap_content"
+                  android:fontFamily="@font/rubik_medium"
+                  android:layout_height="wrap_content"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>

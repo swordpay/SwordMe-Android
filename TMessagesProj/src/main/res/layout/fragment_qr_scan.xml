@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/qrScannerParent"
+    tools:context="org.telegram.sword.app.bottomSheet.scanner.QrScan">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dismissButton"
+            android:paddingStart="@dimen/dp_13"
+            android:paddingEnd="@dimen/dp_15"
+            app:srcCompat="@drawable/ic_circle_x"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:scaleType="center"
+            android:layout_width="@dimen/dp_40"
+            android:layout_marginTop="@dimen/displayMarginSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="@dimen/dp_40"/>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_50"
+            android:background="@drawable/qr_scanner_frame"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dismissButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_dialog"
+        android:paddingTop="@dimen/dp_30"
+        android:paddingStart="@dimen/displayMarginSize"
+        android:paddingEnd="@dimen/displayMarginSize"
+        android:paddingBottom="@dimen/dp_30">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/photoBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:background="@drawable/rounded_clickable_gray"
+                    android:padding="25dp"
+                    android:src="@drawable/msg_photos"
+                    android:tint="@color/dark_text_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Photo"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/videoBtn"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:background="@drawable/rounded_clickable_gray"
+                    android:padding="25dp"
+                    android:tint="@color/dark_text_color"
+                    android:src="@drawable/ic_video" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Video"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

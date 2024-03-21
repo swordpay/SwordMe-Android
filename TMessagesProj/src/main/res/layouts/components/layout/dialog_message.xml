@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27.5dp"
+        android:background="@drawable/style_dialog"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/dialogTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_18" />
+
+            <TextView
+                android:lineSpacingExtra="4dp"
+                android:id="@+id/dialogDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:elegantTextHeight="true"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="center"
+                android:textColor="@color/hint"
+                android:textSize="@dimen/textSize_18" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/dismissBtn"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/border_btn"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/rubik_semibold"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textAlignment="center"
+                    android:textColor="@color/appBlue"
+                    android:textSize="@dimen/textSize_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/dialogBtn"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/active_btn"
+                    android:elevation="2dp"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:gravity="center"
+                    android:text="@string/ok"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_18" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/messageDialogStatusIcon"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/success_dialog_icon" />
+</RelativeLayout>

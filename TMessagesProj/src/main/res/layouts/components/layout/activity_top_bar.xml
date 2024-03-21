@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="@dimen/topBarSize">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/onBackBtn"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/displayMarginSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_back_icon"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/topBarTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_semi_bold"
+        app:layout_constraintStart_toEndOf="@id/onBackBtn"
+        android:singleLine="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/topBarRightBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elegantTextHeight="true"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/dark_text_color"
+        android:textSize="@dimen/textSize_20"
+         />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/topBarRightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:singleLine="true"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        android:gravity="center"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elegantTextHeight="true"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:textColor="@color/inactiveBlue"
+        android:textSize="@dimen/topBarTitleSize"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

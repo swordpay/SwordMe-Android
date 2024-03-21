@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <org.telegram.sword.app.common.helper.ui.SwordSearchView
+        android:id="@+id/peopleSearchView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/searchViewSize"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        app:search_hint="@string/user_search_hint"
+        android:layout_marginTop="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        app:layout_constraintEnd_toStartOf="@id/scanBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/scanBtn"
+        android:layout_width="@dimen/searchViewSize"
+        android:layout_height="@dimen/searchViewSize"
+        android:layout_margin="@dimen/displayMarginSize"
+        android:background="@drawable/gray_oval_fon"
+        android:padding="12dp"
+        android:src="@drawable/qr_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/topLine"
+        layout="@layout/gray_line_2dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/peopleSearchView" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/segmentTab"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/searchViewSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLine">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/feed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:background="@drawable/click_effect"
+            android:gravity="center"
+            android:elegantTextHeight="true"
+            android:text="@string/feed"
+            android:textAlignment="center"
+            android:textColor="@color/appBlue"
+            android:textSize="@dimen/textSize_16"
+            />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/transaction"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:elegantTextHeight="true"
+            android:layout_weight="1"
+            android:background="@drawable/click_effect"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/transactions"
+            android:textAlignment="center"
+            android:textSize="@dimen/textSize_16"
+            />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <include
+        android:id="@+id/bottomLine"
+        layout="@layout/gray_line_2dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/segmentTab" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

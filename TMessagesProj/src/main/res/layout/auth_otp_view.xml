@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="MissingDefaultResource">
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/dp_10_gray_fon"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="10dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textFieldDialogTitle_"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textFieldDialogDesc_"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_regular"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textFieldDialogTitle_" />
+
+        <EditText
+            android:id="@+id/dialogTextField_"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/normal_text_field"
+            android:fontFamily="@font/graphik_semi_bold"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:maxLength="4"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/dark_text_color"
+            android:textColorHint="@color/hint"
+            android:textSize="@dimen/textSize_28"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldDialogDesc_" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialogErrorText_"
+            android:layout_width="wrap_content"
+            android:paddingStart="@dimen/dp_7"
+            android:visibility="gone"
+            android:paddingEnd="@dimen/dp_7"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/errorColor"
+            android:textSize="@dimen/textSize_12"
+            app:layout_constraintTop_toBottomOf="@+id/dialogTextField_"
+            tools:layout_editor_absoluteX="10dp" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/line_"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="@dimen/dp_2"
+            app:layout_constraintTop_toBottomOf="@+id/dialogErrorText_"
+            android:background="#E7E7E8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textFieldDialogDismissBtn_"
+                android:elegantTextHeight="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@color/firstAppBlue"
+                android:textSize="@dimen/textSize_14" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/dp_2"
+                android:background="#E7E7E8"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/positiveBtn_"
+                android:layout_width="0dp"
+                android:elegantTextHeight="true"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@color/firstAppBlue"
+                android:textSize="14sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

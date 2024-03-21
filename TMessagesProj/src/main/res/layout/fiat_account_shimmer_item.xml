@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="14dp"
+    android:minHeight="100dp"
+    android:background="@drawable/gray_low_rouded_fon"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iconFon"
+        android:layout_width="@dimen/dp_62"
+        android:layout_height="@dimen/dp_62"
+        android:src="@color/shimmerColor"
+        app:riv_oval="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/textLayout"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkIcon"
+        app:layout_constraintStart_toEndOf="@+id/iconFon"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:background="@drawable/shimer_rounded_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elegantTextHeight="true"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="                                                            "
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/dp_16"
+            app:autoSizeTextType="uniform" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shimer_rounded_view"
+            android:elegantTextHeight="true"
+            android:text="                                       "
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textColor="@color/hint"
+            android:textSize="@dimen/dp_14"
+            app:autoSizeTextType="uniform" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/checkIcon"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:src="@drawable/blue_check_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

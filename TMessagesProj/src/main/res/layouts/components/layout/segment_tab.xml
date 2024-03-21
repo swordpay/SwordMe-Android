@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:layout_height="@dimen/segmentTabSize"
+        android:background="@drawable/segment_tab_fon"
+        android:padding="4dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/select"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/dp_22"
+                android:background="@drawable/tab_segment_fon"
+                android:textColor="@color/hint" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:textSize="@dimen/dp_22"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/hint" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/firstSegmentTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+              >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/firstSegmentIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:tint="@color/appBlue" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/firstSegmentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:elegantTextHeight="true"
+                    android:text="1"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_22" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/lastSegmentTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+               >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/lastSegmentIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:tint="@color/hint" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lastSegmentName"
+                     android:elegantTextHeight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:singleLine="true"
+                    android:text="2"
+                    android:textColor="@color/inactiveSegmentTextColor"
+                    android:textSize="@dimen/dp_22" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

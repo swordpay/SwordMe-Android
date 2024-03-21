@@ -1,0 +1,70 @@
+/*
+ *  Copyright 2004 The WebRTC Project Authors. All rights reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree. An additional intellectual property rights grant can be found
+ *  in the file PATENTS.  All contributing project authors may
+ *  be found in the AUTHORS file in the root of the source tree.
+ */
+
+#ifndef RTC_BASE_ASYNC_UDP_SOCKET_H_
+#define RTC_BASE_ASYNC_UDP_SOCKET_H_
+
+#include <stddef.h>
+
+#include <memory>
+
+#include "rtc_base/async_packet_socket.h"
+#include "rtc_base/socket.h"
+#include "rtc_base/socket_address.h"
+#include "rtc_base/socket_factory.h"
+
+namespace rtc {
+
+// buffered since it is acceptable to drop packets under high load.
+class AsyncUDPSocket : public AsyncPacketSocket {
+ public:
+
+
+
+  static AsyncUDPSocket* Create(Socket* socket,
+                                const SocketAddress& bind_address);
+
+
+  static AsyncUDPSocket* Create(SocketFactory* factory,
+                                const SocketAddress& bind_address);
+  explicit AsyncUDPSocket(Socket* socket);
+  ~AsyncUDPSocket() override;
+
+  SocketAddress GetLocalAddress() const override;
+  SocketAddress GetRemoteAddress() const override;
+  int Send(const void* pv,
+           size_t cb,
+           const rtc::PacketOptions& options) override;
+  int SendTo(const void* pv,
+             size_t cb,
+             const SocketAddress& addr,
+             const rtc::PacketOptions& options) override;
+  int Close() override;
+
+  State GetState() const override;
+  int GetOption(Socket::Option opt, int* value) override;
+  int SetOption(Socket::Option opt, int value) override;
+  int GetError() const override;
+  void SetError(int error) override;
+
+ private:
+
+  void OnReadEvent(Socket* socket);
+
+  void OnWriteEvent(Socket* socket);
+
+  std::unique_ptr<Socket> socket_;
+  char* buf_;
+  size_t size_;
+};
+
+}  // namespace rtc
+
+#endif  // RTC_BASE_ASYNC_UDP_SOCKET_H_

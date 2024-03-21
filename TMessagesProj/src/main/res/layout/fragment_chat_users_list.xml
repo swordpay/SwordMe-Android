@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.telegram.sword.app.bottomSheet.chatUsersList.view.ChatUsersList">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/bottom_sheet_top_bar" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/topLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#A6A6AA" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatUsersListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/app_users_list_item" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

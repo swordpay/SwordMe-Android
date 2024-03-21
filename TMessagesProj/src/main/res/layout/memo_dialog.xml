@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="MissingDefaultResource">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/dp_10_gray_fon"
+        android:paddingStart="10dp"
+        android:paddingTop="30dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="30dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/provide_memo"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/memo"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/normal_text_field"
+            android:fontFamily="@font/graphik_semi_bold"
+            android:hint="@string/memo"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/dark_text_color"
+            android:textColorHint="@color/hint"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:layout_editor_absoluteX="20dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/memoErrorText"
+            android:layout_width="wrap_content"
+            android:paddingStart="@dimen/dp_7"
+            android:visibility="gone"
+            android:paddingEnd="@dimen/dp_7"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/invalid_memo"
+            android:textColor="@color/errorColor"
+            android:textSize="@dimen/textSize_12"
+            app:layout_constraintTop_toBottomOf="@+id/memo"
+            tools:layout_editor_absoluteX="10dp" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/memoErrorText">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dismissMemoBtn"
+                android:elegantTextHeight="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/red_border_style"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:singleLine="true"
+                android:text="@string/cancel"
+                android:textAlignment="center"
+                android:textColor="@color/errorColor"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/transferBtn"
+                android:layout_width="0dp"
+                android:elegantTextHeight="true"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/inactive_btn"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:singleLine="true"
+                android:text="@string/transfer"
+                android:textAlignment="center"
+                android:textColor="@color/hint"
+                android:textSize="14sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

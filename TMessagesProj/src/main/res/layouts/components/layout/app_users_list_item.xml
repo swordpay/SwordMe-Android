@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/click_effect"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/displayMarginSize"
+        android:paddingTop="9dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="9dp">
+
+
+        <View
+
+            android:id="@+id/checkboxUser"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/oval_border"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <FrameLayout
+            android:id="@+id/avatarLayout"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkboxUser"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--            <com.makeramen.roundedimageview.RoundedImageView-->
+            <!--                android:id="@+id/avatar"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                app:riv_border_width="0.3dp"-->
+            <!--                android:src="@drawable/yellow_oval_icon"-->
+            <!--                app:riv_border_color="@color/dark_hint"-->
+            <!--                android:scaleType="centerCrop"-->
+            <!--                app:riv_oval="true" />-->
+
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:id="@+id/firstCharacter"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_marginBottom="1dp"-->
+            <!--                android:elegantTextHeight="true"-->
+            <!--                android:fontFamily="@font/poppins_bold"-->
+            <!--                android:singleLine="true"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@android:color/white"-->
+            <!--                android:textSize="@dimen/textSize_20" />-->
+        </FrameLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/avatarLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/friendName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_16" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:elegantTextHeight="true"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/hint"
+                android:textSize="@dimen/textSize_12"
+                android:visibility="gone"
+                app:fontFamily="@font/poppins_regular" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        layout="@layout/gray_line_2dp"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginStart="@dimen/dp_45" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+

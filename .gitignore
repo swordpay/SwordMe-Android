@@ -1,0 +1,8 @@
+.idea/
+.gradle/
+build/
+obj/
+*.iml
+local.properties
+.cxx/
+TMessagesProj/.cxx/RelWithDebInfo/

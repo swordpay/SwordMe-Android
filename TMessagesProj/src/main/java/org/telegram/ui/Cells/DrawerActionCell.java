@@ -1,0 +1,192 @@
+/*
+ * This is the source code of Telegram for Android v. 5.x.x.
+ * It is licensed under GNU GPL v. 2 or later.
+ * You should have received a copy of the license in this archive (see LICENSE).
+ *
+ * Copyright Nikolai Kudashov, 2013-2018.
+ */
+
+package org.telegram.ui.Cells;
+
+import static org.telegram.messenger.utils.SwordColors.DARK_TEXT_COLOR;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.RectF;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.core.content.res.ResourcesCompat;
+
+import org.telegram.messenger.AndroidUtilities;
+import org.telegram.messenger.FileLog;
+import org.telegram.messenger.LocaleController;
+import org.telegram.messenger.MessagesController;
+import org.telegram.messenger.R;
+import org.telegram.messenger.UserConfig;
+import org.telegram.ui.ActionBar.Theme;
+import org.telegram.ui.Components.LayoutHelper;
+
+import java.util.Set;
+
+public class DrawerActionCell extends FrameLayout {
+
+    private ImageView imageView;
+    private TextView textView;
+    private FrameLayout fon;
+    private int currentId;
+    private RectF rect = new RectF();
+
+    public DrawerActionCell(Context context,boolean isSwordAccountsSell,boolean isSwordSupportSell) {
+        super(context);
+
+        fon = new FrameLayout(context);
+
+        imageView = new ImageView(context);
+
+
+        textView = new TextView(context);
+
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+        textView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
+        textView.setGravity(Gravity.CENTER_VERTICAL);
+        toggleRTL(true,isSwordAccountsSell,isSwordSupportSell);
+
+        setWillNotDraw(false);
+    }
+
+    private boolean wasRTL;
+
+    public void toggleRTL(boolean force,boolean isSwordAccountsSell,boolean isSwordSupportSell) {
+        if (wasRTL != LocaleController.isRTL || force) {
+            wasRTL = LocaleController.isRTL;
+            removeAllViews();
+
+            int iconSize = 24;
+            int margin = 19;
+
+
+            if (isSwordAccountsSell){
+
+
+                iconSize = 42;
+
+                margin = 15;
+
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            }else if (isSwordSupportSell){
+
+                iconSize = 41;
+
+                margin = 15;
+
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            }
+
+
+           addView(imageView, LayoutHelper.createFrame(iconSize, iconSize, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.CENTER_VERTICAL, LocaleController.isRTL ? 0 : margin, 0, LocaleController.isRTL ? 0 : margin, 0));
+           addView(textView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.CENTER_VERTICAL, LocaleController.isRTL ? 16 : 72, 0, LocaleController.isRTL ? 72 : 16, 0));
+        }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (currentId == 8) {
+            Set<String> suggestions = MessagesController.getInstance(UserConfig.selectedAccount).pendingSuggestions;
+            if (suggestions.contains("VALIDATE_PHONE_NUMBER") || suggestions.contains("VALIDATE_PASSWORD")) {
+                int countTop = AndroidUtilities.dp(12.5f);
+                int countWidth = AndroidUtilities.dp(9);
+                int countLeft = LocaleController.isRTL ? countWidth + AndroidUtilities.dp(25) : getMeasuredWidth() - countWidth - AndroidUtilities.dp(25);
+
+                int x = countLeft - AndroidUtilities.dp(5.5f);
+                rect.set(x, countTop, x + countWidth + AndroidUtilities.dp(14), countTop + AndroidUtilities.dp(23));
+                Theme.chat_docBackPaint.setColor(Theme.getColor(Theme.key_chats_archiveBackground));
+                canvas.drawRoundRect(rect, 11.5f * AndroidUtilities.density, 11.5f * AndroidUtilities.density, Theme.chat_docBackPaint);
+
+                int w = Theme.dialogs_errorDrawable.getIntrinsicWidth();
+                int h = Theme.dialogs_errorDrawable.getIntrinsicHeight();
+                Theme.dialogs_errorDrawable.setBounds((int) (rect.centerX() - w / 2), (int) (rect.centerY() - h / 2), (int) (rect.centerX() + w / 2), (int) (rect.centerY() + h / 2));
+                Theme.dialogs_errorDrawable.draw(canvas);
+            }
+        }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(AndroidUtilities.dp(48), MeasureSpec.EXACTLY));
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+//        textView.setTextColor(Theme.getColor(Theme.key_chats_menuItemText));
+    }
+
+    public void setTextAndIcon(int id, String text, int resId) {
+
+        if (id == 20 || id == 21){
+
+            textView.setTextColor(DARK_TEXT_COLOR);
+            textView.setElegantTextHeight(true);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 31);
+            textView.setTypeface(ResourcesCompat.getFont(getContext().getApplicationContext(), R.font.poppins_semi_bold));
+            imageView.setColorFilter(null);
+
+        } else if (id==30 || id == 31){
+
+            textView.setTextColor(DARK_TEXT_COLOR);
+            textView.setElegantTextHeight(true);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+            textView.setTypeface(ResourcesCompat.getFont(getContext().getApplicationContext(), R.font.poppins_semi_bold));
+            imageView.setColorFilter(null);
+
+
+        }else {
+
+            textView.setElegantTextHeight(false);
+            textView.setTextColor(Theme.getColor(Theme.key_chats_menuItemText));
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+            textView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
+            imageView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_menuItemIcon), PorterDuff.Mode.SRC_IN));
+        }
+
+
+
+        toggleRTL(false,(id==20||id ==21),(id==30||id ==31));
+        currentId = id;
+        try {
+            textView.setText(text);
+            imageView.setImageResource(resId);
+        } catch (Throwable e) {
+            FileLog.e(e);
+        }
+    }
+
+    public void updateTextAndIcon(String text, int resId) {
+        try {
+            textView.setText(text);
+            imageView.setImageResource(resId);
+        } catch (Throwable e) {
+            FileLog.e(e);
+        }
+    }
+
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        info.setClassName("android.widget.Button");
+        info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+        info.addAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
+        info.setText(textView.getText());
+        info.setClassName(TextView.class.getName());
+    }
+}

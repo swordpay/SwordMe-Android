@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/closedRequestMessageLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.4"
+                android:background="@drawable/live_chat_white_fon_item"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/friend_reject_title_fon"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:text="@string/reject_title"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_12" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/coinIcon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/transparent"
+                        android:elevation="2dp"
+                        android:scaleType="centerCrop"
+                        app:riv_oval="true" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/moneyPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="@color/dark_text_color"
+                        android:textSize="@dimen/textSize_24" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/infoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:fontFamily="@font/rubik_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_15" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="end"
+                    android:layout_marginTop="-3dp"
+                    android:alpha="0.3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textSize_11"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+
+</layout>

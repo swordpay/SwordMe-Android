@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gray_button_fon"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/textSize_10"
+        android:drawableTint="@color/firstAppBlue"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:paddingStart="15dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/firstAppBlue"
+        android:textSize="@dimen/textSize_18" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

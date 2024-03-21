@@ -1,0 +1,51 @@
+// Copyright (c) 2012 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+#ifndef BASE_LINUX_UTIL_H_
+#define BASE_LINUX_UTIL_H_
+
+#include <stdint.h>
+#include <sys/types.h>
+
+#include <string>
+#include <vector>
+
+#include "base/base_export.h"
+
+namespace base {
+
+// in compromised context without going through the standard library.
+BASE_EXPORT extern char g_linux_distro[];
+
+BASE_EXPORT std::string GetLinuxDistro();
+
+#if defined(UNIT_TEST)
+// Get the value of given key from the given input (content of the
+// /etc/os-release file. Exposed for testing.
+BASE_EXPORT std::string GetKeyValueFromOSReleaseFileForTesting(
+    const std::string& input,
+    const char* key);
+#endif  // defined(UNIT_TEST)
+
+BASE_EXPORT void SetLinuxDistro(const std::string& distro);
+
+// true and appends the list of threads to |tids|. Otherwise, returns false.
+BASE_EXPORT bool GetThreadsForProcess(pid_t pid, std::vector<pid_t>* tids);
+
+// thread with /proc/[pid]/task/[thread_id]/syscall whose first N bytes matches
+// |expected_data|, where N is the length of |expected_data|.
+// Returns the thread id or -1 on error.  If |syscall_supported| is
+// set to false the kernel does not support syscall in procfs.
+BASE_EXPORT pid_t FindThreadIDWithSyscall(pid_t pid,
+                                          const std::string& expected_data,
+                                          bool* syscall_supported);
+
+// thread with /proc/[pid]/task/[thread_id]/status where NSpid matches |ns_tid|.
+// Returns the thread id or -1 on error.  If |ns_pid_supported| is
+// set to false the kernel does not support NSpid in procfs.
+BASE_EXPORT pid_t FindThreadID(pid_t pid, pid_t ns_tid, bool* ns_pid_supported);
+
+}  // namespace base
+
+#endif  // BASE_LINUX_UTIL_H_

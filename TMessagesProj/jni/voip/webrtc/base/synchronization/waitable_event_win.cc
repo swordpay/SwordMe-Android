@@ -1,0 +1,149 @@
+// Copyright (c) 2011 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+#include "base/synchronization/waitable_event.h"
+
+#include <windows.h>
+#include <stddef.h>
+
+#include <algorithm>
+#include <utility>
+
+#include "base/debug/activity_tracker.h"
+#include "base/logging.h"
+#include "base/numerics/safe_conversions.h"
+#include "base/optional.h"
+#include "base/threading/scoped_blocking_call.h"
+#include "base/threading/thread_restrictions.h"
+#include "base/time/time.h"
+#include "base/time/time_override.h"
+
+namespace base {
+
+WaitableEvent::WaitableEvent(ResetPolicy reset_policy,
+                             InitialState initial_state)
+    : handle_(CreateEvent(nullptr,
+                          reset_policy == ResetPolicy::MANUAL,
+                          initial_state == InitialState::SIGNALED,
+                          nullptr)) {
+
+
+  CHECK(handle_.IsValid());
+}
+
+WaitableEvent::WaitableEvent(win::ScopedHandle handle)
+    : handle_(std::move(handle)) {
+  CHECK(handle_.IsValid()) << "Tried to create WaitableEvent from NULL handle";
+}
+
+WaitableEvent::~WaitableEvent() = default;
+
+void WaitableEvent::Reset() {
+  ResetEvent(handle_.Get());
+}
+
+void WaitableEvent::Signal() {
+  SetEvent(handle_.Get());
+}
+
+bool WaitableEvent::IsSignaled() {
+  DWORD result = WaitForSingleObject(handle_.Get(), 0);
+  DCHECK(result == WAIT_OBJECT_0 || result == WAIT_TIMEOUT)
+      << "Unexpected WaitForSingleObject result " << result;
+  return result == WAIT_OBJECT_0;
+}
+
+void WaitableEvent::Wait() {
+
+
+
+  Optional<debug::ScopedEventWaitActivity> event_activity;
+  Optional<internal::ScopedBlockingCallWithBaseSyncPrimitives>
+      scoped_blocking_call;
+  if (waiting_is_blocking_) {
+    event_activity.emplace(this);
+    scoped_blocking_call.emplace(FROM_HERE, BlockingType::MAY_BLOCK);
+  }
+
+  DWORD result = WaitForSingleObject(handle_.Get(), INFINITE);
+
+
+  DPCHECK(result != WAIT_FAILED);
+  DCHECK_EQ(WAIT_OBJECT_0, result);
+}
+
+bool WaitableEvent::TimedWait(const TimeDelta& wait_delta) {
+  if (wait_delta <= TimeDelta())
+    return IsSignaled();
+
+
+
+  Optional<debug::ScopedEventWaitActivity> event_activity;
+  Optional<internal::ScopedBlockingCallWithBaseSyncPrimitives>
+      scoped_blocking_call;
+  if (waiting_is_blocking_) {
+    event_activity.emplace(this);
+    scoped_blocking_call.emplace(FROM_HERE, BlockingType::MAY_BLOCK);
+  }
+
+
+
+
+  const TimeTicks end_time =
+      wait_delta.is_max() ? TimeTicks::Max()
+                          : subtle::TimeTicksNowIgnoringOverride() + wait_delta;
+  for (TimeDelta remaining = wait_delta; remaining > TimeDelta();
+       remaining = end_time - subtle::TimeTicksNowIgnoringOverride()) {
+
+
+
+    const DWORD timeout_ms =
+        remaining.is_max()
+            ? INFINITE
+            : saturated_cast<DWORD>(remaining.InMillisecondsRoundedUp());
+    const DWORD result = WaitForSingleObject(handle_.Get(), timeout_ms);
+    DCHECK(result == WAIT_OBJECT_0 || result == WAIT_TIMEOUT)
+        << "Unexpected WaitForSingleObject result " << result;
+    switch (result) {
+      case WAIT_OBJECT_0:
+        return true;
+      case WAIT_TIMEOUT:
+
+
+
+
+        continue;
+    }
+  }
+  return false;
+}
+
+size_t WaitableEvent::WaitMany(WaitableEvent** events, size_t count) {
+  DCHECK(count) << "Cannot wait on no events";
+  internal::ScopedBlockingCallWithBaseSyncPrimitives scoped_blocking_call(
+      FROM_HERE, BlockingType::MAY_BLOCK);
+
+  debug::ScopedEventWaitActivity event_activity(events[0]);
+
+  HANDLE handles[MAXIMUM_WAIT_OBJECTS];
+  CHECK_LE(count, static_cast<size_t>(MAXIMUM_WAIT_OBJECTS))
+      << "Can only wait on " << MAXIMUM_WAIT_OBJECTS << " with WaitMany";
+
+  for (size_t i = 0; i < count; ++i)
+    handles[i] = events[i]->handle();
+
+  DWORD result =
+      WaitForMultipleObjects(static_cast<DWORD>(count),
+                             handles,
+                             FALSE,      // don't wait for all the objects
+                             INFINITE);  // no timeout
+  if (result >= WAIT_OBJECT_0 + count) {
+    DPLOG(FATAL) << "WaitForMultipleObjects failed";
+    return 0;
+  }
+
+  return result - WAIT_OBJECT_0;
+}
+
+}  // namespace base

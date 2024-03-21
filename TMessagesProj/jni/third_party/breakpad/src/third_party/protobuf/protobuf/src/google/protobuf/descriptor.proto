@@ -1,0 +1,482 @@
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// http://code.google.com/p/protobuf/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// The messages in this file describe the definitions found in .proto files.
+// A valid .proto file can be translated directly to a FileDescriptorProto
+// without any other information (e.g. without reading its imports).
+
+
+
+package google.protobuf;
+option java_package = "com.google.protobuf";
+option java_outer_classname = "DescriptorProtos";
+
+// algorithms don't work during bootstrapping.
+option optimize_for = SPEED;
+
+// files it parses.
+message FileDescriptorSet {
+  repeated FileDescriptorProto file = 1;
+}
+
+message FileDescriptorProto {
+  optional string name = 1;       // file name, relative to root of source tree
+  optional string package = 2;    // e.g. "foo", "foo.bar", etc.
+
+  repeated string dependency = 3;
+
+  repeated DescriptorProto message_type = 4;
+  repeated EnumDescriptorProto enum_type = 5;
+  repeated ServiceDescriptorProto service = 6;
+  repeated FieldDescriptorProto extension = 7;
+
+  optional FileOptions options = 8;
+
+
+
+
+  optional SourceCodeInfo source_code_info = 9;
+}
+
+message DescriptorProto {
+  optional string name = 1;
+
+  repeated FieldDescriptorProto field = 2;
+  repeated FieldDescriptorProto extension = 6;
+
+  repeated DescriptorProto nested_type = 3;
+  repeated EnumDescriptorProto enum_type = 4;
+
+  message ExtensionRange {
+    optional int32 start = 1;
+    optional int32 end = 2;
+  }
+  repeated ExtensionRange extension_range = 5;
+
+  optional MessageOptions options = 7;
+}
+
+message FieldDescriptorProto {
+  enum Type {
+
+
+    TYPE_DOUBLE         = 1;
+    TYPE_FLOAT          = 2;
+    TYPE_INT64          = 3;   // Not ZigZag encoded.  Negative numbers
+
+
+    TYPE_UINT64         = 4;
+    TYPE_INT32          = 5;   // Not ZigZag encoded.  Negative numbers
+
+
+    TYPE_FIXED64        = 6;
+    TYPE_FIXED32        = 7;
+    TYPE_BOOL           = 8;
+    TYPE_STRING         = 9;
+    TYPE_GROUP          = 10;  // Tag-delimited aggregate.
+    TYPE_MESSAGE        = 11;  // Length-delimited aggregate.
+
+    TYPE_BYTES          = 12;
+    TYPE_UINT32         = 13;
+    TYPE_ENUM           = 14;
+    TYPE_SFIXED32       = 15;
+    TYPE_SFIXED64       = 16;
+    TYPE_SINT32         = 17;  // Uses ZigZag encoding.
+    TYPE_SINT64         = 18;  // Uses ZigZag encoding.
+  };
+
+  enum Label {
+
+    LABEL_OPTIONAL      = 1;
+    LABEL_REQUIRED      = 2;
+    LABEL_REPEATED      = 3;
+
+  };
+
+  optional string name = 1;
+  optional int32 number = 3;
+  optional Label label = 4;
+
+
+  optional Type type = 5;
+
+
+
+
+
+  optional string type_name = 6;
+
+
+  optional string extendee = 2;
+
+
+
+
+
+  optional string default_value = 7;
+
+  optional FieldOptions options = 8;
+}
+
+message EnumDescriptorProto {
+  optional string name = 1;
+
+  repeated EnumValueDescriptorProto value = 2;
+
+  optional EnumOptions options = 3;
+}
+
+message EnumValueDescriptorProto {
+  optional string name = 1;
+  optional int32 number = 2;
+
+  optional EnumValueOptions options = 3;
+}
+
+message ServiceDescriptorProto {
+  optional string name = 1;
+  repeated MethodDescriptorProto method = 2;
+
+  optional ServiceOptions options = 3;
+}
+
+message MethodDescriptorProto {
+  optional string name = 1;
+
+
+  optional string input_type = 2;
+  optional string output_type = 3;
+
+  optional MethodOptions options = 4;
+}
+
+// Options
+
+// just annotations which may cause code to be generated slightly differently
+// or may contain hints for code that manipulates protocol messages.
+//
+// Clients may define custom options as extensions of the *Options messages.
+// These extensions may not yet be known at parsing time, so the parser cannot
+// store the values in them.  Instead it stores them in a field in the *Options
+// message called uninterpreted_option. This field must have the same name
+// across all *Options messages. We then use this field to populate the
+// extensions when we build a descriptor, at which point all protos have been
+// parsed and so all extensions are known.
+//
+// Extension numbers for custom options may be chosen as follows:
+// * For options which will only be used within a single application or
+//   organization, or for experimental options, use field numbers 50000
+//   through 99999.  It is up to you to ensure that you do not use the
+//   same number for multiple options.
+// * For options which will be published and used publicly by multiple
+//   independent entities, e-mail protobuf-global-extension-registry@google.com
+//   to reserve extension numbers. Simply provide your project name (e.g.
+//   Object-C plugin) and your porject website (if available) -- there's no need
+//   to explain how you intend to use them. Usually you only need one extension
+//   number. You can declare multiple options with only one extension number by
+//   putting them in a sub-message. See the Custom Options section of the docs
+//   for examples:
+//   http://code.google.com/apis/protocolbuffers/docs/proto.html#options
+//   If this turns out to be popular, a web service will be set up
+//   to automatically assign option numbers.
+
+
+message FileOptions {
+
+
+
+
+  optional string java_package = 1;
+
+
+
+
+
+  optional string java_outer_classname = 8;
+
+
+
+
+
+
+  optional bool java_multiple_files = 10 [default=false];
+
+
+
+
+  optional bool java_generate_equals_and_hash = 20 [default=false];
+
+  enum OptimizeMode {
+    SPEED = 1;        // Generate complete code for parsing, serialization,
+
+    CODE_SIZE = 2;    // Use ReflectionOps to implement these methods.
+    LITE_RUNTIME = 3; // Generate code using MessageLite and the lite runtime.
+  }
+  optional OptimizeMode optimize_for = 9 [default=SPEED];
+
+
+
+
+
+
+
+
+
+
+  optional bool cc_generic_services = 16 [default=false];
+  optional bool java_generic_services = 17 [default=false];
+  optional bool py_generic_services = 18 [default=false];
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message MessageOptions {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  optional bool message_set_wire_format = 1 [default=false];
+
+
+
+  optional bool no_standard_descriptor_accessor = 2 [default=false];
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message FieldOptions {
+
+
+
+
+  optional CType ctype = 1 [default = STRING];
+  enum CType {
+
+    STRING = 0;
+
+    CORD = 1;
+
+    STRING_PIECE = 2;
+  }
+
+
+
+
+  optional bool packed = 2;
+
+
+
+
+  optional bool deprecated = 3 [default=false];
+
+
+
+
+
+
+
+
+
+
+
+
+  optional string experimental_map_key = 9;
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message EnumOptions {
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message EnumValueOptions {
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message ServiceOptions {
+
+
+
+
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+message MethodOptions {
+
+
+
+
+
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  extensions 1000 to max;
+}
+
+// appears in options protos created by the compiler::Parser class.
+// DescriptorPool resolves these when building Descriptor objects. Therefore,
+// options protos in descriptor objects (e.g. returned by Descriptor::options(),
+// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
+// in them.
+message UninterpretedOption {
+
+
+
+
+
+  message NamePart {
+    required string name_part = 1;
+    required bool is_extension = 2;
+  }
+  repeated NamePart name = 2;
+
+
+  optional string identifier_value = 3;
+  optional uint64 positive_int_value = 4;
+  optional int64 negative_int_value = 5;
+  optional double double_value = 6;
+  optional bytes string_value = 7;
+  optional string aggregate_value = 8;
+}
+
+// Optional source code info
+
+// FileDescriptorProto was generated.
+message SourceCodeInfo {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  repeated Location location = 1;
+  message Location {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    repeated int32 path = 1 [packed=true];
+
+
+
+
+
+    repeated int32 span = 2 [packed=true];
+
+
+  }
+}

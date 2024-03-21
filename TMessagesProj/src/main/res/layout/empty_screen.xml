@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emptyTitle"
+        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:elegantTextHeight="true"
+        android:textSize="@dimen/textSize_22"
+        android:lineSpacingExtra="@dimen/dp_4"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/dark_text_color"
+        android:layout_margin="@dimen/displayMarginSize"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emptySubTitle"
+        android:layout_width="wrap_content"
+        android:elegantTextHeight="true"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="@dimen/textSize_14"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/hint"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:layout_marginBottom="@dimen/displayMarginSize"
+        android:layout_height="wrap_content"/>
+    
+
+</androidx.appcompat.widget.LinearLayoutCompat>

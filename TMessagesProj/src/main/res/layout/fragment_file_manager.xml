@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="org.telegram.sword.app.bottomSheet.fileManager.FileManager">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/foldersLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/dismissButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/pictureFolder"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_70"
+                    android:src="@drawable/picture_folder"
+                    android:layout_height="@dimen/dp_70"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Picture"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/musicFolder"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_70"
+                    android:src="@drawable/music_folder"
+                    android:layout_height="@dimen/dp_70"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Music"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/videoFolder"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_70"
+                    android:src="@drawable/video_folder"
+                    android:layout_height="@dimen/dp_70"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Video"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/documentFolder"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_70"
+                    android:src="@drawable/document_folder"
+                    android:layout_height="@dimen/dp_70"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Document"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/downloadFolder"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dp_70"
+                    android:src="@drawable/download_folder"
+                    android:layout_height="@dimen/dp_70"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Downloads"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dismissButton"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/displayMarginSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_circle_x"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fileManagerListView"
+        android:layout_width="0dp"
+        android:visibility="gone"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dismissButton" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

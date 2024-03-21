@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/style_dialog"
+        android:padding="15dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/permissionsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:text="@string/unableToOpen"
+                android:textColor="@color/appBlue"
+                android:textSize="@dimen/textFieldTextSize"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/permissionsEnableDesc"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:lineSpacingExtra="4dp"
+                android:textAlignment="center"
+                android:textColor="@color/dark_text_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/cancelGoToSettings"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue_border_btn"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/rubik_semibold"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textAlignment="center"
+                    android:textColor="@color/appBlue"
+                    android:textSize="@dimen/textSize_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:id="@+id/goToSettings"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/active_btn"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/rubik_semibold"
+                    android:gravity="center"
+                    android:text="@string/settings"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textSize_14" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/dialogStatusIcon"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/oval_settings"
+        app:riv_oval="true" />
+</RelativeLayout>

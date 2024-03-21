@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="org.telegram.sword.app.bottomSheet.cryptoList.view.CryptoList">
+
+    <include
+        android:id="@+id/topIcon"
+        layout="@layout/bottom_sheet_draggable_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <org.telegram.sword.app.common.helper.ui.SwordSearchView
+        android:id="@+id/cryptoSearchView"
+        app:search_hint="Ex: bitcoin, btc"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/displayMarginSize"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:layout_height="@dimen/searchViewSize" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cryptoListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/money_list_item" />
+
+    <include
+        android:visibility="gone"
+        android:id="@+id/searchIsNoResult"
+        layout="@layout/search_there_is_no_result"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

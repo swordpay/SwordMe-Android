@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sword KYC verification</title>
+</head>
+<body>
+</body>
+<script>
+  const sdkScript = document.createElement('script')
+
+  console.log('sdkScript', sdkScript)
+  console.log('document',document.body)
+
+  sdkScript.src = "https://static.saasexch.com/static/binance/static/kyc-ui/sdk/0.0.1/sdk.js";
+  document.body.appendChild(sdkScript)
+  sdkScript.unload = () => {
+    if (BinanceKyc) {
+      const binanceKyc = new BinanceKyc({
+        authToken: 'ODBkN2JjMDA5M2Q5NDczZjk1NDU1Mjg2OGRkMGQyYjM6U1dPUkQ%3D',
+        bizEntityKey: 'SWORD',
+        apiHost: 'https://dip-qacb.sdtaop.com',
+        onMessage: ({ typeCode }) => {
+          console.log('typeCode', typeCode)
+
+          if (typeCode === '102') {
+            binanceKyc.switchVisible(true)
+          }
+        },
+      })
+    }
+  }
+</script>
+</html>

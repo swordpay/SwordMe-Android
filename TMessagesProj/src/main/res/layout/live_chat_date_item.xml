@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:elevation="@dimen/dp_10"
+    android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/dp_19"
+    android:paddingTop="@dimen/dp_5"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:text="Fri, Jul 26"
+        android:paddingEnd="@dimen/dp_22"
+        android:paddingStart="@dimen/dp_22"
+        android:background="@drawable/live_chat_date_fon"
+        android:paddingTop="@dimen/dp_3"
+        android:paddingBottom="@dimen/dp_3"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/textSize_12"
+        android:textColor="@color/dark_text_color"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

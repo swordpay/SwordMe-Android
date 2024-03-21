@@ -1,0 +1,31 @@
+//
+//  General.xcconfig
+//
+//  These are General configuration settings for the gtest framework and
+//  examples.
+//  This file is based on the Xcode Configuration files in:
+//  https://github.com/google/google-toolbox-for-mac
+// 
+
+ARCHS = x86_64 ppc ppc64
+
+ZERO_LINK = NO
+
+PREBINDING = NO
+
+WARNING_CFLAGS = -Wall -Werror -Wendif-labels -Wnewline-eof -Wno-sign-compare -Wshadow
+
+// http://lists.apple.com/archives/Xcode-users/2006/Feb/msg00050.html
+SEPARATE_STRIP = YES
+
+GCC_C_LANGUAGE_STANDARD = c99
+
+ALWAYS_SEARCH_USER_PATHS = NO
+
+GCC_DYNAMIC_NO_PIC = YES
+
+SDKROOT = $(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk
+MACOSX_DEPLOYMENT_TARGET = 10.4
+GCC_VERSION = 4.0
+
+GTEST_VERSIONINFO_ABOUT =  © 2008 Google Inc.

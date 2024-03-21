@@ -1,0 +1,23 @@
+ <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context="org.telegram.sword.app.home.tabs.cryptoAccount.onRamper.bottomSheet.payTypesList.PayTypesList">
+
+        <include
+            android:id="@+id/topBar"
+            layout="@layout/bottom_sheet_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/payTypesListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/fiat_list_item" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>

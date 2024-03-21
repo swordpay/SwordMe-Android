@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.telegram.sword.sendOrRequest.SendOrRequest">
+
+
+
+    <include
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/activity_top_bar"/>
+
+    <include
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/sendMoneySegmentTab"
+        layout="@layout/segment_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/addNoteShadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendMoneySegmentTab">
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginBottom="-11dp"
+        app:layout_constraintTop_toBottomOf="@id/sendMoneySegmentTab"
+        app:layout_constraintBottom_toTopOf="@id/addNoteShadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/dp_50"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/requestMessageInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/displayMarginSize"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                >
+
+                <include layout="@layout/gray_line_2dp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/senderRequestUserName"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="Requested Amount"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_15" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/senderRequestAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/dark_hint"
+                    android:textSize="@dimen/textSize_17" />
+
+                <include layout="@layout/gray_line_2dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/usersAvatarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:layout_marginBottom="-12dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/requestMessageInfo">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/usersLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/firstUserFrame"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp">
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/centerUserFrame"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="-25dp"
+                        android:visibility="gone">
+
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/lastUserFrame"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="-25dp"
+                        android:visibility="gone">
+
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/moreUsersBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="..."
+                        android:textColor="@color/hint"
+                        android:textSize="@dimen/textSize_30"
+                        android:visibility="gone" />
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/usersNames"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:layout_marginEnd="@dimen/displayMarginSize"
+                    android:elegantTextHeight="true"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_20" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <include
+                android:id="@+id/line_2"
+                layout="@layout/gray_line_2dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_30"
+                app:layout_constraintTop_toBottomOf="@+id/usersAvatarLayout" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/amountTextFieldLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:layout_marginTop="@dimen/dp_40"
+                android:layout_marginEnd="@dimen/displayMarginSize"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line_2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/money_amount"
+                    android:textColor="@color/hint"
+                    android:textSize="@dimen/textSize_18" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/cryptoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:background="@drawable/dp_10_gray_fon"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_6"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_6"
+                    android:visibility="gone">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/coinIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/test_3"
+                        app:riv_border_color="@color/white"
+                        app:riv_border_width="2dp"
+                        app:riv_oval="true" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/coinEuro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="ACM/EUR"
+                            android:textColor="@color/dark_text_color"
+                            android:textSize="@dimen/textSize_13" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/coinEuroAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="1ACM = 2.14EUR"
+                            android:textColor="@color/hint"
+                            android:textSize="@dimen/textSize_13" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:src="@drawable/smoll_drop_down_icon" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/amountDropDownIconBtn"
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginEnd="@dimen/dp_10"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/amountDropDownIcon"
+                                android:layout_width="wrap_content"
+                                android:visibility="gone"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dp_10"
+                                android:src="@drawable/drop_down_icon"
+                                />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/amountTypeIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/bold_euro" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/payOrRequestTextField"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:autoSizeTextType="uniform"
+                                android:background="@color/transparent"
+                                android:digits="0123456789.,"
+                                android:elegantTextHeight="true"
+                                android:fontFamily="@font/poppins_regular"
+                                android:gravity="center"
+                                android:hint="0"
+                                android:inputType="phone"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_5"
+                                android:paddingEnd="@dimen/dp_5"
+                                android:singleLine="true"
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_text_color"
+                                android:textColorHint="@color/textFieldHintColor"
+                                android:textSize="@dimen/textSize_48"
+                                tools:ignore="UnusedAttribute" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textFieldLineColor" />
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <!--        <include-->
+                <!--            android:id="@+id/payOrRequestTextField"-->
+                <!--            layout="@layout/money_text_field"-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_margin="@dimen/displayMarginSize"-->
+                <!--            android:layout_marginTop="@dimen/displayMarginSize"-->
+                <!--            app:layout_constraintEnd_toEndOf="parent"-->
+                <!--            app:layout_constraintStart_toStartOf="parent"-->
+                <!--            app:layout_constraintTop_toBottomOf="@id/line_2" />-->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/amountUnavailableMessage"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/textSize_14"
+                    android:text="Crypto Exchange Rates Unavailable"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <include
+                android:id="@+id/line_3"
+                layout="@layout/gray_line_2dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_40"
+                app:layout_constraintTop_toBottomOf="@+id/amountTextFieldLayout" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <net.orandja.shadowlayout.ShadowLayout
+        android:id="@+id/addNoteShadow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="-11dp"
+        android:layout_marginEnd="-11dp"
+        android:layout_marginBottom="-11dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shadow_color="@color/shadowColor"
+        app:shadow_with_color="false"
+        tools:ignore="MissingConstraints">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/displayMarginSize"
+            android:paddingEnd="@dimen/displayMarginSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addANote"
+                android:layout_marginTop="@dimen/dp_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_toEndOf="@+id/liveChatChangeBtn"
+                android:background="@drawable/live_chat_message_text_field_style"
+                android:gravity="center_vertical"
+                android:hint="@string/whatIsThisFor"
+                android:textColorHint="@color/hint"
+                android:maxLines="5"
+                android:maxLength="200"
+                android:minHeight="@dimen/textFieldSize"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:textSize="@dimen/textSize_16"
+                />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/buttonsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintBottom_toTopOf="@+id/SkipToPlatformBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/pay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/yellow_btn"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:maxHeight="@dimen/dp_50"
+                        android:maxLines="1"
+                        android:paddingEnd="@dimen/dp_5"
+                        android:paddingStart="@dimen/dp_5"
+                        android:minHeight="@dimen/dp_42"
+                        android:text="@string/send"
+                        android:textAlignment="center"
+                        android:textColor="@color/appBlue"
+                        android:textSize="@dimen/dp_17"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/request"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/request"
+                        android:minHeight="@dimen/dp_42"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:maxHeight="@dimen/dp_50"
+                        android:paddingEnd="@dimen/dp_5"
+                        android:paddingStart="@dimen/dp_5"
+                        android:background="@drawable/active_btn"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:maxLines="1"
+                        android:text="@string/request"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/dp_17"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/pay"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--                <include-->
+
+                <!--                    android:id="@+id/pay"-->
+                <!--                    layout="@layout/blue_button"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1" />-->
+
+                <!--                <include-->
+
+                <!--                    android:id="@+id/request"-->
+                <!--                    layout="@layout/blue_border_button"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1" />-->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </net.orandja.shadowlayout.ShadowLayout>
+
+    <FrameLayout
+        android:id="@+id/bottomSheetLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#81272727"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <include
+        android:id="@+id/consent"
+        layout="@layout/consent_page"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

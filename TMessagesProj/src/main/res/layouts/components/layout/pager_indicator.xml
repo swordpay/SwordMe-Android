@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/pagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:dotsColor="#DADADA"
+        app:dotsCornerRadius="100dp"
+        app:dotsSize="10dp"
+        app:dotsClickable="false"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="7"
+        app:progressMode="false"
+        app:selectedDotColor="@color/appBlue" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

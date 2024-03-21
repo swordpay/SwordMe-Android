@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:layout_height="wrap_content">
+
+
+    <net.orandja.shadowlayout.ShadowLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        app:shadow_color="#0D000000"
+        app:shadow_radius="10"
+        app:circularflow_radiusInDP="10"
+        app:layout_constraintCircleRadius="@dimen/dp_10"
+        app:circularflow_defaultRadius="@dimen/dp_10"
+        app:shadow_with_color="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gray_border">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/topInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ramper_list_top_info_style"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="@dimen/displayMarginSize"
+                android:paddingTop="@dimen/dp_7"
+                android:textSize="@dimen/dp_14"
+                android:paddingEnd="@dimen/displayMarginSize"
+                android:visibility="gone"
+                android:paddingBottom="@dimen/dp_7"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/infoLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/infoLayout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_90"
+                android:layout_marginEnd="@dimen/displayMarginSize"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topInfo">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:elevation="2dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/priceLayout"
+                    app:layout_constraintStart_toEndOf="@+id/icon"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:textSize="@dimen/textSize_14"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/recommendationInfoLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:gravity="center_vertical"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/dp_17"
+                            android:layout_height="@dimen/dp_17"
+                            android:layout_marginEnd="@dimen/dp_5"
+                            android:src="@drawable/best_price_icon" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/recommendationInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:elegantTextHeight="true"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Best Price"
+                            android:textColor="#5BAF6E"
+                            android:textSize="10dp"
+                            tools:ignore="SmallSp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/errorMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:textColor="#8D92B0"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/priceLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/displayMarginSize"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/youGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="You get"
+                        android:textColor="#8D92B0"
+                        android:textSize="10sp"
+                        android:visibility="gone"
+                        tools:ignore="SmallSp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:elegantTextHeight="true"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_text_color"
+                        android:textSize="@dimen/textSize_13"
+                        android:textStyle="bold" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="-25 %"
+                        android:textColor="@color/green_text"
+                        android:textSize="11sp"
+                        android:visibility="gone" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/disableStyle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/ramp_disaple_item_style"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </net.orandja.shadowlayout.ShadowLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

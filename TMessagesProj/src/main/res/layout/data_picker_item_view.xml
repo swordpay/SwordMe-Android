@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/item"
+    android:layout_marginEnd="@dimen/displayMarginSize"
+    android:layout_marginStart="@dimen/displayMarginSize"
+    android:padding="@dimen/dp_6"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:text="1 Seconds"
+        android:layout_marginStart="@dimen/displayMarginSize"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:singleLine="true"
+        android:elegantTextHeight="true"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/hint"
+        android:textSize="@dimen/textSize_18"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

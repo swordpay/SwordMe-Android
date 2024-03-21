@@ -1,0 +1,15 @@
+//
+//  StaticLibraryTarget.xcconfig
+//
+//  These are static library target settings for libgtest.a. It
+//  is set in the "Based On:" dropdown in the "Target" info dialog.
+//  This file is based on the Xcode Configuration files in:
+//  https://github.com/google/google-toolbox-for-mac
+// 
+
+GCC_DYNAMIC_NO_PIC = NO
+
+// stripped.
+STRIP_STYLE = debugging
+
+SKIP_INSTALL = NO

@@ -1,0 +1,10 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+//#define LOTTIE_LOGGING_SUPPORT
+
+//#define LOTTIE_STATIC_IMAGE_LOADER
+
+//#define LOTTIE_CACHE_SUPPORT
+
+#endif  // CONFIG_H

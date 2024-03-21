@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/dp_10"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/click_effect"
+        android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/nameLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/displayMarginSize"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toStartOf="@+id/balanceLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/coinIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:background="@color/transparent"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dark_gray_oval"
+                app:riv_border_color="@color/dark_gray"
+                app:riv_border_width="0.3dp"
+                app:riv_oval="true" />
+
+            <FrameLayout
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:background="@drawable/dark_gray_oval"
+                android:layout_width="40dp"
+                android:layout_height="@dimen/dp_40"/>
+
+        </FrameLayout>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="true"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/shortName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_3"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="#8D92B0"
+                android:textSize="14sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/balanceLayout"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="@dimen/displayMarginSize"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:gravity="end|center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/coinBalanceInEuro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="true"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginBottom="@dimen/dp_3"
+                android:textColor="#8D92B0"
+                android:textSize="@dimen/textSize_14"
+                 />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/changePercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:elegantTextHeight="true"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green_text"
+                android:textSize="@dimen/textSize_12"
+                 />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <include
+            layout="@layout/gray_line_2dp"
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/dark_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

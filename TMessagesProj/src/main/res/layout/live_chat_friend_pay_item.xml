@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:id="@+id/avatarLayout"
+                android:layout_width="@dimen/dp_34"
+                android:layout_height="@dimen/dp_34"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/displayMarginSize"
+                android:layout_marginEnd="10dp">
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/chatFriendsAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gray_oval_fon"
+                    android:scaleType="centerCrop"
+                    app:riv_border_color="@color/white"
+                    app:riv_border_width="0.3dp"
+                    app:riv_oval="true" />
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/yellowFon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/yellow_oval_icon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:visibility="gone"
+                    android:id="@+id/firsCharacter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="A"
+                    android:layout_marginBottom="1dp"
+                    android:fontFamily="@font/graphik_semi_bold"
+                    android:singleLine="true"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize_17" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/payOrRequestMessageLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.65"
+                android:background="@drawable/live_chat_white_fon_item"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/friend_request_title_fon"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:text="@string/symbol_sent"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_12" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/coinIcon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/transparent"
+                        android:elevation="2dp"
+                        android:scaleType="centerCrop"
+                        app:riv_oval="true" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/moneyPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:lineSpacingExtra="3dp"
+                        android:text="15"
+                        android:textColor="@color/dark_text_color"
+                        android:textSize="@dimen/textSize_24" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/infoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:fontFamily="@font/rubik_regular"
+                    android:lineSpacingExtra="3dp"
+                    android:text="fvdfvbfdvdfvfdvfdfbvfdb"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_15" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/notLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_marginTop="@dimen/dp_7"
+                    android:layout_marginBottom="@dimen/dp_7"
+                    android:background="@color/textFieldLineColor" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/not"
+                    android:textColorLink="@color/appBlue"
+                    android:linksClickable="true"
+                    android:autoLink="all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="dvcdxgvdxvddddddddddddddddddddfrfrfrrfrgrgrggrgg fd"
+                    android:textColor="@color/dark_text_color"
+                    android:textSize="@dimen/textSize_14" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="end"
+                    android:layout_marginTop="-3dp"
+                    android:text="11:45"
+                    android:alpha="0.3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textSize_11"
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+</layout>

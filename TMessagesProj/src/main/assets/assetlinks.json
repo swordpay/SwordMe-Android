@@ -1,0 +1,14 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+
+  "target" : {
+
+  "namespace": "android_app",
+
+  "package_name": "com.swordpay.me",
+
+  "sha256_cert_fingerprints":
+   
+  ["CC:06:E8:4E:38:3C:51:45:19:BA:21:A8:EB:83:D9:6E:92:BE:3C:26:57:F6:40:29:59:06:56:90:87:8C:F4:FF"] }
+
+}]

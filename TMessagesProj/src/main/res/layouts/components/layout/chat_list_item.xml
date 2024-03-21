@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatListItemFon"
+        android:layout_width="match_parent"
+        android:background="@drawable/click_effect"
+        android:layout_height="90dp">
+
+        <FrameLayout
+            android:id="@+id/avatarLayout"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/chatFriendsAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/empty_avatar"
+                android:scaleType="centerCrop"
+                app:riv_border_color="@color/gray"
+                app:riv_border_width="0.5dp"
+                app:riv_oval="true" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_transparent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/groupAvatarIconText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/graphik_semi_bold"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="35sp" />
+        </FrameLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:text="Save Koalas in Australia"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_15"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:elegantTextHeight="true"
+            app:layout_constraintEnd_toStartOf="@+id/chatDate"
+            app:layout_constraintStart_toEndOf="@+id/avatarLayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/senderName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:text="Alexander: Just rece ikjugjgjcsd  hgjjhgjhjgjhgj gjjgjgjgjgjgved the"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/avatarLayout"
+            app:layout_constraintTop_toBottomOf="@id/name"
+
+
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lastMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="2"
+            android:text="Alexander: Juthe"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/avatarLayout"
+            app:layout_constraintTop_toBottomOf="@id/senderName"
+            />
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/chatDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:singleLine="true"
+            android:text="8/25/19"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/inactive_text_color"
+            android:textSize="@dimen/textSize_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="#3B3C3C43"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

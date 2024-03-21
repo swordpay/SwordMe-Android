@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/sendFrom"
+            layout="@layout/request_detail_item" />
+
+        <include
+            android:id="@+id/sendTo"
+            layout="@layout/request_detail_item" />
+
+        <include
+            android:id="@+id/date"
+            layout="@layout/request_detail_item" />
+
+        <include
+            android:id="@+id/amount"
+            layout="@layout/request_detail_item" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/displayMarginSize"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="@dimen/displayMarginSize"
+            android:layout_marginBottom="20dp"
+            android:text="@string/payment_details"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/topBarTitleSize"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

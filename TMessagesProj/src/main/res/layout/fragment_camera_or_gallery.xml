@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="org.telegram.sword.app.bottomSheet.CameraOrGallery">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:weightSum="10"
+        app:layout_constraintDimensionRatio="H,1:0.18"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/uploadPhotoDismissBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:srcCompat="@drawable/ic_circle_x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="8"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/poppins_bold"
+            android:maxLines="2"
+            android:text="@string/uploadPhoto"
+            android:textAlignment="center"
+            android:textColor="@color/dark_text_color"
+            android:textSize="@dimen/textSize_16" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/hint"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/change_photo_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:paddingBottom="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/line">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/photoCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/rounded_clickable_gray"
+                android:padding="25dp"
+                android:tint="@color/dark_text_color"
+                android:src="@drawable/ic_camera" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="@string/camera"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_14" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/photoInGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/rounded_clickable_gray"
+                android:padding="25dp"
+                android:tint="@color/dark_text_color"
+                android:src="@drawable/ic_gallery" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/gallery"
+                android:textColor="@color/dark_text_color"
+                android:textSize="@dimen/textSize_14" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

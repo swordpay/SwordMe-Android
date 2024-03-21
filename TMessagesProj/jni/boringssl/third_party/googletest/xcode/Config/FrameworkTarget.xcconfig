@@ -1,0 +1,14 @@
+//
+//  FrameworkTarget.xcconfig
+//
+//  These are Framework target settings for the gtest framework and examples. It
+//  is set in the "Based On:" dropdown in the "Target" info dialog.
+//  This file is based on the Xcode Configuration files in:
+//  https://github.com/google/google-toolbox-for-mac
+// 
+
+GCC_DYNAMIC_NO_PIC = NO
+
+STRIP_STYLE = non-global
+
+SKIP_INSTALL = NO
